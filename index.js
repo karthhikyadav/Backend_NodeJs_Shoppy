@@ -14,7 +14,7 @@ const Path = require('path');
 
 const app = express()
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 dotEnv.config();
 app.use(cors())
@@ -31,7 +31,7 @@ app.use('/uploads', express.static('uploads'));
 
 
 
-app.use('/home', (req, res) => {
+app.use('/', (req, res) => {
     console.log('<h1> welcome to our shoppy</h1>')
     res.send('<h1>Welcome to our shoppy</h1>');
 })
